@@ -1,7 +1,5 @@
 // binary Search
 
-// Solution
-
 // Header Files
 #include <stdio.h>
 #include <stdlib.h>
