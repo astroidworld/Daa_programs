@@ -9,7 +9,6 @@
 // function prototype
 int **createg(int **, int *);
 void dijkstra(int n, int **);
-int mstchecker(int *mst, int n);
 int minkey(int *, int *, int);
 void printgraph(int **, int);
 
@@ -147,12 +146,6 @@ void dijkstra(int n, int **graph)
     {
         printf("%d-%d\t%4d\n\t\t", start, i, key[i]);
     }
-
-    //     for (int i = 0; i < n; i++) {
-    //       mincost += key[i];
-    //     }
-
-    //   printf("\n\n\t\tMincost is %d",mincost);
 }
 
 // function to find the minimum key
