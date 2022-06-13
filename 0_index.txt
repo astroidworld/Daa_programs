@@ -1,0 +1,21 @@
+INDEX
+
+Program List:-
+
+1.WAP to find out the sum of Array using a recursive method.
+
+2.WAP to implement Matrix Multiplication.
+
+3.WAP to implement Selection Sort.
+
+4.Write a program to implement Binary Search in a recursive approach and also calculate the execution time.
+
+5.Write a program to find the maximum & minimum among a set of numbers in a recursive approach and also calculate the execution time.
+
+6.Write a program to implement merge sort.
+
+7.Write a program to implement Quick sort. Find the rate of change of execution time by changing the input size using a random function.
+
+8.Write a program to implement Knapsack Program using Greedy Approach.
+
+
