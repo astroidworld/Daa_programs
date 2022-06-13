@@ -18,4 +18,12 @@ Program List:-
 
 8.Write a program to implement Knapsack Program using Greedy Approach.
 
+9.Write a program to implement Job Sequencing with Deadline Algorithm using Greedy Approach.
+
+10.Write a program to implement Prim’s Algorithm using Greedy Approach.
+
+11.Write a program to implement Matrix Chain Multiplication using Dynamic Programming Approach.
+
+12.Write a program to implement Dijkstra’s Algorithm using Greedy Approach.
+
 

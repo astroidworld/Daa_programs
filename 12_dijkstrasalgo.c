@@ -1,21 +1,26 @@
-// header files
+// dijkstra's algorithm
+
+// solution by ~Akash
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 
-// function prototypes
+// function prototype
 int **createg(int **, int *);
-void printgraph(int **, int);
-void prims(int n, int **);
+void dijkstra(int n, int **);
+int mstchecker(int *mst, int n);
 int minkey(int *, int *, int);
+void printgraph(int **, int);
 
 // main function
 int main()
 {
+
     int **graph;
     int num;
     graph = createg(graph, &num);
-    prims(num, graph);
+    dijkstra(num, graph);
     return 0;
 }
 
@@ -85,26 +90,13 @@ void printgraph(int **graph, int num)
     }
 }
 
-// function to find the minimum key
-
-int minkey(int *key, int *mst, int n)
+// dijkstra algorithm
+void dijkstra(int n, int **graph)
 {
-    int min = INT_MAX, min_index;
-    for (int i = 0; i < n; i++)
-    {
-        if (mst[i] == 0 && key[i] < min)
-        {
-            min = key[i];
-            min_index = i;
-        }
-    }
-    return min_index;
-}
+    int i, j, mincost = 0, *mst, *key, *parent, node = 0, min = INT_MAX, p, u, start;
 
-// prims algorithm
-void prims(int n, int **graph)
-{
-    int i, j, *mst, *key, *parent, node;
+    printf("\nEnter the strat node:- ");
+    scanf("%d", &start);
 
     key = (int *)malloc(sizeof(int) * n);
     mst = (int *)malloc(sizeof(int) * n);
@@ -116,29 +108,66 @@ void prims(int n, int **graph)
         mst[i] = 0;
     }
 
-    key[0] = 0;
-    parent[0] = -1;
+    key[start] = 0;
+    parent[start] = -1;
 
     for (int i = 0; i < n - 1; i++)
     {
-        node = minkey(key, mst, n);
-        mst[node] = 1;
+        u = minkey(key, mst, n);
+
+        mst[u] = 1;
+
         for (int j = 0; j < n; j++)
         {
-            if (graph[node][j] && mst[j] == 0 && graph[node][j] < key[j])
+            if (graph[u][j] && mst[j] == 0 && (graph[u][j] + key[u]) < key[j])
             {
-                parent[j] = node;
-                key[j] = graph[node][j];
+                parent[j] = u;
+                key[j] = graph[u][j] + key[u];
             }
         }
     }
 
-    // print answer
-    printf("\n\t\t----\t------");
+    printf("\t\t----\t------");
     printf("\n\t\tEdge\tWeight\n\t\t");
     printf("----\t------\n\t\t");
     for (int i = 1; i < n; i++)
     {
+        if (parent[i] == -1)
+        {
+            printf("%d-%d\t%4d\n\t\t", start, i, graph[i][parent[i]]);
+            continue;
+        }
         printf("%d-%d\t%4d\n\t\t", parent[i], i, graph[i][parent[i]]);
     }
+
+    printf("\nPATH (distance from source):- \n");
+    printf("\n\t\tEdge\tWeight\n\t\t");
+    printf("----\t------\n\t\t");
+    for (int i = 1; i < n; i++)
+    {
+        printf("%d-%d\t%4d\n\t\t", start, i, key[i]);
+    }
+
+    //     for (int i = 0; i < n; i++) {
+    //       mincost += key[i];
+    //     }
+
+    //   printf("\n\n\t\tMincost is %d",mincost);
+}
+
+// function to find the minimum key
+
+int minkey(int *key, int *mst, int n)
+{
+    int min = INT_MAX, min_index;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (mst[i] == 0 && key[i] < min)
+        {
+            min = key[i];
+            min_index = i;
+        }
+    }
+    return min_index;
 }
