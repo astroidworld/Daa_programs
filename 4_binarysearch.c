@@ -1,5 +1,4 @@
 // binary Search
-
 // Header Files
 #include <stdio.h>
 #include <stdlib.h>
