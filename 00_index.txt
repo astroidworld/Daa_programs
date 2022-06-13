@@ -26,4 +26,10 @@ Program List:-
 
 12.Write a program to implement Dijkstra’s Algorithm using Greedy Approach.
 
+13.Write a program to implement Bellman-Ford Algorithm using Dynamic Programming Approach.
+
+14.Write a program to implement Graph Coloring Problem using Backtracking Approach.
+
+15.Write a program to implement 8-Queens Problem using Backtracking Approach.
+
 
