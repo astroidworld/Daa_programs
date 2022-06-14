@@ -129,11 +129,11 @@ void dijkstra(int n, int **graph)
     printf("\t\t----\t------");
     printf("\n\t\tEdge\tWeight\n\t\t");
     printf("----\t------\n\t\t");
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         if (parent[i] == -1)
         {
-            printf("%d-%d\t%4d\n\t\t", start, i, graph[i][parent[i]]);
+            printf("%d-%d\tStarting node\n\t\t", start, i);
             continue;
         }
         printf("%d-%d\t%4d\n\t\t", parent[i], i, graph[i][parent[i]]);
@@ -142,7 +142,7 @@ void dijkstra(int n, int **graph)
     printf("\nPATH (distance from source):- \n");
     printf("\n\t\tEdge\tWeight\n\t\t");
     printf("----\t------\n\t\t");
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         printf("%d-%d\t%4d\n\t\t", start, i, key[i]);
     }
